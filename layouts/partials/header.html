@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    {{ if .IsHome }}
+        <title>DUSK</title>
+    {{ else }}
+        <title>{{ .Title }}</title>
+    {{ end }}
+    <meta name="description" content="{{ .Description }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Open Graph -->
+    <meta property="og:locale" content="{{ .Site.LanguageCode }}">
+    <meta property="og:title" content="{{ .Title }}">
+    {{ if .IsHome }}
+        <meta property="og:description" content="We build digital solutions for your big ideas">
+    {{ else }}
+        <meta property="og:description" content="{{ .Description }}">
+    {{ end }}
+    <meta property="og:url" content="{{ .Permalink }}">
+    <meta property="og:image" content="">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="">
+    <meta name="twitter:title" content="">
+    <meta name="twitter:description" content="">
+    <meta name="twitter:image" content="">
+
+    <!-- Apple Touch Icon -->
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+    <!-- Style Sheet -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Web Fonts -->
+    <script>
+        WebFontConfig = {
+            custom: {
+                families: ['Icon'],
+                urls: ['/css/fonts/fonts.css']
+            },
+            google: {
+                families: ['Libre+Baskerville:400,400i,700']
+            },
+            typekit: {
+                id: 'xyr0zxf'
+            }
+        };
+    </script>
+
+    <!-- Web Font Loader -->
+    <script defer src="/js/vendor/webfontloader.js" async="async"></script>
+
+    <!--[if lt IE 9]>
+    <script src="/js/vendor/polyfills.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <!--[if lt IE 9]>
+    <p class="upgrade">You are using an <strong>outdated</strong> browser. Please <a class="upgrade__link" href="http://browsehappy.com/?locale=en">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+    <header class="l-header" role="banner">
+        <a class="logo" href="/">
+            <img src="/images/logos/logo-next-74x28.png" srcset="/images/logos/logo-next-74x28@2x.png 2x" width="74" height="28" alt="DUSK logo">
+        </a>
+
+        <nav class="nav nav--primary js-nav" role="navigation" style="background-image: url('/images/backgrounds/background-X-1035x1331.png')">
+            <ol class="nav__list">
+                {{ $currentNode := . }}
+                {{ range .Site.Menus.header }}
+                <li {{ if $currentNode.IsMenuCurrent "header" . }} class="nav__item is-active" {{else}} class="nav__item"  {{end}}><a class="nav__link" href="{{ .URL }}">{{ .Name }}</a></li>
+                {{ end }}
+            </ol>
+        </nav>
+
+        <a class="hamburger js-nav-toggle" href="#footer">
+            <span class="hamburger__bar">
+                <span class="u-visuallyhidden">Menu</span>
+            </span>
+        </a>
+    </header>

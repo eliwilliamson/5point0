@@ -1,0 +1,5 @@
+baseurl = "https://www.justdusk.com"
+languageCode = "en-us"
+title = "DUSK"
+description = "We build digital solutions for your big ideas"
+disableRss = true
